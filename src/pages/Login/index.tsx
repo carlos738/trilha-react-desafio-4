@@ -27,6 +27,15 @@ const Login = () => {
     defaultValues,
     reValidateMode: "onChange",
   });
+  const onSubimit = (data: IFormLogin)=>{
+    const isAuthenticated = true;
+
+    if (isAuthenticated) {
+      alert("Acesso permitido");
+    }else{
+      alert("acesso negado");
+    }
+  };
 
   return (
     <Container>
@@ -49,7 +58,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" disable={isValid} />
+          <Button title="Entrar" disable={!isValid} onClick={handleSubmit(onSubimit)}/>
         </Column>
       </LoginContainer>
     </Container>
